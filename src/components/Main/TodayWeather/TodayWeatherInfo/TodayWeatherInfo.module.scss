@@ -1,0 +1,35 @@
+@import '../../../../vars.scss';
+
+.todayWeatherInfo {
+  position: relative;
+  display: flex;
+  padding: 42px 32px;
+  @extend %card-style;
+
+  &__bigCloud {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    width: 400px; 
+  }
+
+  &__titles {
+    margin-right: 20px;
+  }
+
+  &__texts {
+    padding-top: 8px;
+  }
+
+  &__text_1 {
+    margin-bottom: 38px;
+    z-index: 10;
+  }
+
+  &__text_2,
+  &__text_3,
+  &__text_4 {
+    margin-bottom: 38px;
+    z-index: 10;
+  }
+}

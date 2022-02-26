@@ -1,0 +1,37 @@
+@import '../../../../vars.scss';
+
+.todayWeatherSm {
+  padding: 20px;
+  @extend %card-style;
+
+  &__info_big {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__degree {
+    font-size: 96px;
+    font-weight: 500;
+    line-height: 117px;
+    color: $blueText;
+  }
+
+  &__today {
+    font-size: 40px;
+    color: var(--text-color);
+    line-height: 49px;
+  }
+
+  &__text {
+    color: $greyText;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

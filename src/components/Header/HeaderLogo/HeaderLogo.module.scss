@@ -1,0 +1,15 @@
+@import '../../../vars.scss';
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+
+  &__text {
+    margin-left: 20px;
+    color: $blueText;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+}

@@ -1,0 +1,9 @@
+$container: 1230px;
+$blueText: #4793FF;
+$greyText: #939CB0;
+
+%card-style {
+  box-shadow: 2px 5px 25px -3px var(--shadow);
+  border-radius: 20px;
+  background-color: var(--elems-big-color);
+}

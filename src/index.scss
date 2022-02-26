@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  // min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body[data-theme='light'] {
+  --text-color: #000;
+  --bg-color: #fff;
+  --elems-big-color: #fff;
+  --select-bg-color:rgba(71, 147, 255, 0.2);
+  --elems-sm-color: rgba(71, 147, 255, 0.2);
+
+  --shadow: rgba(180, 180, 180, 0.25);
+}
+
+body[data-theme='dark'] {
+  --text-color: #fff;
+  --bg-color: #0D1117;
+  --elems-big-color: #4F4F4F;
+  --select-bg-color:#4F4F4F;
+  --elems-sm-color: #2E3035;
+
+  --shadow: rgba(180, 180, 180, 0.25);
+}
+
+#react-select-2-placeholder {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
