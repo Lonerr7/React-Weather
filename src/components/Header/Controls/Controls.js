@@ -2,12 +2,12 @@ import s from './Controls.module.scss';
 import Select from 'react-select';
 import raindrop from '../../../assets/images/header/raindrop.svg';
 
-const Controls = () => {
+const Controls = (props) => {
   const options = [
-    { value: 'Минск', label: 'Минск' },
-    { value: 'Киев', label: 'Киев' },
-    { value: 'Берлин', label: 'Берлин' },
-    { value: 'Вашингтон', label: 'Вашингтон' },
+    { value: 'mogilev', label: 'Могилев' },
+    { value: 'minsk', label: 'Минск' },
+    { value: 'kyiv', label: 'Киев' },
+    { value: 'berlin', label: 'Берлин' },
   ];
 
   const customStyles = {
@@ -22,13 +22,20 @@ const Controls = () => {
       ...provided,
       zIndex: 100,
       cursor: 'pointer',
+      backgroundColor: 'var(--elems-big-color)',
+      color: 'var(--text-color)',
     }),
   };
 
   return (
     <div className={s.controls}>
       <div className={s.controls__imgBox}>
-        <img className={s.controls__img} src={raindrop} alt="raindrop" />
+        <img
+          className={s.controls__img}
+          src={raindrop}
+          alt="raindrop"
+          onClick={props.changeThemeHandler}
+        />
       </div>
       <Select
         options={options}

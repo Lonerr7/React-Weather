@@ -18,7 +18,7 @@ body[data-theme='light'] {
   --text-color: #000;
   --bg-color: #fff;
   --elems-big-color: #fff;
-  --select-bg-color:rgba(71, 147, 255, 0.2);
+  --select-bg-color: rgba(71, 147, 255, 0.2);
   --elems-sm-color: rgba(71, 147, 255, 0.2);
 
   --shadow: rgba(180, 180, 180, 0.25);
@@ -26,10 +26,10 @@ body[data-theme='light'] {
 
 body[data-theme='dark'] {
   --text-color: #fff;
-  --bg-color: #0D1117;
-  --elems-big-color: #4F4F4F;
-  --select-bg-color:#4F4F4F;
-  --elems-sm-color: #2E3035;
+  --bg-color: #0d1117;
+  --elems-big-color: #4f4f4f;
+  --select-bg-color: #4f4f4f;
+  --elems-sm-color: #2e3035;
 
   --shadow: rgba(180, 180, 180, 0.25);
 }
@@ -41,4 +41,8 @@ body[data-theme='dark'] {
 
 .css-1okebmr-indicatorSeparator {
   display: none;
+}
+
+#react-select-2-listbox {
+  background-color: var(--elems-big-color);
 }
