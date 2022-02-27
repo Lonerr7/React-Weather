@@ -42,7 +42,6 @@ export const getWeather =
     const city = citiesFn(cityName);
     const response = await weatherAPI.getWeatherInfo(city.lat, city.lng);
     dispatch(getWeatherSuccess(response.data));
-    console.log(response.data);
   };
 
 export default weatherReducer;
