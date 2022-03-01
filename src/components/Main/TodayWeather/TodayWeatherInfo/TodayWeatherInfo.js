@@ -5,11 +5,11 @@ import pressure from '../../../../assets/images/main/pressure.svg';
 import precip from '../../../../assets/images/main/precip.svg';
 import bigCloud from '../../../../assets/images/main/bigCloud.png';
 import TodayWeatherInfoTitle from './TodayWeatherInfoTitle/TodayWeatherInfoTitle';
-import { createTemp } from '../../../../helpers/helpers';
+import { createTemperature } from '../../../../helpers/helpers';
 
 const TodayWeatherInfo = (props) => {
-  const temperature = createTemp(props.temp);
-  const feelsLike = createTemp(props.feelsLike);
+  const temperature = createTemperature(props.temp);
+  const feelsLike = createTemperature(props.feelsLike);
 
   return (
     <div className={s.todayWeatherInfo}>
@@ -33,7 +33,7 @@ const TodayWeatherInfo = (props) => {
         </p>
         <p className={s.todayWeatherInfo__text_3}>Без осадков</p>
         <p className={s.todayWeatherInfo__text_4}>
-          {props.wind} м/с юго-запад - легкий ветер
+          {props.wind} м/с 
         </p>
       </div>
     </div>

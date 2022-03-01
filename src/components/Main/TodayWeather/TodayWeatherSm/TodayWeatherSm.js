@@ -1,13 +1,11 @@
 import s from './TodayWeatherSm.module.scss';
 import bigSun from '../../../../assets/images/main/bigSun.svg';
-import { createTemp } from '../../../../helpers/helpers';
+import { createTemperature } from '../../../../helpers/helpers';
+import { useEffect, useState } from 'react';
+import CurrentTime from './CurrentTime/CurrentTime';
 
 const TodayWeatherSm = (props) => {
-  const today = new Date();
-  const minutes =
-    today.getMinutes() < 10 ? `0${today.getMinutes()}` : today.getMinutes();
-
-  const temp = createTemp(props.temp);
+  const temp = createTemperature(props.temp);
 
   return (
     <div className={s.todayWeatherSm}>
@@ -24,9 +22,7 @@ const TodayWeatherSm = (props) => {
           />
         </div>
       </div>
-      <p className={s.todayWeatherSm__text}>
-        Время: {`${today.getHours()}:${minutes}`}
-      </p>
+      <CurrentTime />
       <p className={s.todayWeatherSm__text}>Город: {props.cityName}</p>
     </div>
   );
