@@ -1,7 +1,5 @@
 import s from './TodayWeatherSm.module.scss';
-import bigSun from '../../../../assets/images/main/bigSun.svg';
 import { createTemperature } from '../../../../helpers/helpers';
-import { useEffect, useState } from 'react';
 import CurrentTime from './CurrentTime/CurrentTime';
 
 const TodayWeatherSm = (props) => {
@@ -17,7 +15,7 @@ const TodayWeatherSm = (props) => {
         <div className={s.todayWeatherSm__bigImgBox}>
           <img
             className={s.todayWeatherSm__bigImg}
-            src={bigSun}
+            src={`https://openweathermap.org/img/wn/${props.iconId}@2x.png`}
             alt="weatherImage"
           />
         </div>

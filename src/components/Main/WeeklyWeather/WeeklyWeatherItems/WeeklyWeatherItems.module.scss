@@ -1,0 +1,9 @@
+@import '../../../../vars.scss';
+
+.weeklyWeatherItems {
+  @extend %card-style;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 30px 20px;
+}

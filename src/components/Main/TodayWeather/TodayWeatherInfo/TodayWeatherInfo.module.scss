@@ -19,6 +19,8 @@
 
   &__texts {
     padding-top: 8px;
+    position: relative; 
+    z-index: 100;
   }
 
   &__text_1 {

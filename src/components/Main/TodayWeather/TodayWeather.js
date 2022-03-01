@@ -9,6 +9,7 @@ const TodayWeather = (props) => {
         <TodayWeatherSm
           temp={props.weatherInfo.main.temp}
           cityName={props.weatherInfo.name}
+          iconId={props.weatherInfo.weather[0].icon}
         />
         <TodayWeatherInfo
           temp={props.weatherInfo.main.temp}

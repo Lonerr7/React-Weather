@@ -1,0 +1,24 @@
+.weeklyWeatherBtns {
+  margin-bottom: 7px;
+
+  &__btn {
+    display: inline-block;
+    padding: 7px 20px;
+    margin-right: 15px;
+    box-shadow: 2px 5px 25px -3px var(--shadow);
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--text-color);
+    border: none;
+    background-color: var(--elems-big-color);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
