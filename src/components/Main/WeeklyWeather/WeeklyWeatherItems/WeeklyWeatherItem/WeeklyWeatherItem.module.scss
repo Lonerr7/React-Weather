@@ -1,0 +1,52 @@
+@import '../../../../../vars.scss';
+
+.weeklyWeatherItem {
+  border-radius: 10px;
+  background-color: var(--elems-sm-color);
+  cursor: pointer;
+
+  &__inner {
+    padding: 11px 11px 13px;
+  }
+
+  &__day, &__dayDegree {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--text-color);
+  }
+
+  &__day {
+    margin-bottom: 7px;
+  }
+
+  &__dateMonth {
+    font-size: 14px;
+    line-height: 17px;
+    color: $greyText;
+    margin-bottom: 12px;
+  }
+
+  &__imgBox {
+    margin-bottom: 13px;
+  }
+
+  &__img {
+    width: 48px;
+    height: 48px;
+  }
+
+  &__dayDegree {
+    margin-bottom: 5px; 
+  }
+
+  &__nightDegree, &__weatherCondition {
+    color: $greyText;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &__nightDegree {
+    margin-bottom: 6px;
+  }
+}

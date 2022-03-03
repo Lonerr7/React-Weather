@@ -38,6 +38,10 @@ const ControlsContainer = (props) => {
       backgroundColor: 'var(--elems-big-color)',
       color: 'var(--text-color)',
     }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: 'var(--text-color)',
+    }),
   };
 
   useEffect(() => {

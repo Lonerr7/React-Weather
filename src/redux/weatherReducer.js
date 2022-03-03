@@ -1,5 +1,6 @@
 import { weatherAPI } from '../api/api';
 import { citiesFn } from '../cities/cities';
+import { get5DayWeather } from './weeklyWeatherReducer';
 
 const CHANGE_THEME = 'CHANGE_THEME';
 const GET_WEATHER_INFO = 'GET_WEATHER_INFO';
@@ -42,6 +43,7 @@ export const getWeather =
     const city = citiesFn(cityName);
     const response = await weatherAPI.getWeatherInfo(city.lat, city.lng);
     dispatch(getWeatherSuccess(response.data));
+    await dispatch(get5DayWeather(city.lat, city.lng));
   };
 
 export default weatherReducer;
