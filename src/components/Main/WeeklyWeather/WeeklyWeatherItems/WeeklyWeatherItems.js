@@ -3,7 +3,7 @@ import WeeklyWeatherItem from './WeeklyWeatherItem/WeeklyWeatherItem';
 import { connect } from 'react-redux';
 
 const WeeklyWeatherItems = (props) => {
-  const weeklyWeatherElems = props.weeklyWeatherArr.map((w) => (
+  const weeklyWeatherElems = props.weatherArr.map((w) => (
     <WeeklyWeatherItem
       key={w.dt}
       icon={w.weather[0].icon}
@@ -18,7 +18,7 @@ const WeeklyWeatherItems = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  weeklyWeatherArr: state.weeklyWeather.weeklyWeatherArr,
+  weatherArr: state.weeklyWeather.weatherArr,
 });
 
 export default connect(mapStateToProps)(WeeklyWeatherItems);

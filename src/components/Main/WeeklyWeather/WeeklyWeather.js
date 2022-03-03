@@ -1,11 +1,11 @@
 import s from './WeeklyWeather.module.scss';
-import WeeklyWeatherBtns from './WeeklyWeatherBtns/WeeklyWeatherBtns';
+import WeeklyWeatherBtnsContainer from './WeeklyWeatherBtns/WeeklyWeatherBtnsContainer/WeeklyWeatherBtnsContainer';
 import WeeklyWeatherItems from './WeeklyWeatherItems/WeeklyWeatherItems';
 
 const WeeklyWeather = () => {
   return (
     <div className={s.weeklyWeather}>
-      <WeeklyWeatherBtns />
+      <WeeklyWeatherBtnsContainer />
       <WeeklyWeatherItems />
     </div>
   )
