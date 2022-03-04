@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   changeThemeSuccess,
   getWeather,
+  setIsActiveBtnSucess,
 } from '../../../../redux/weatherReducer';
 import Controls from '../Controls';
 
@@ -47,6 +48,7 @@ const ControlsContainer = (props) => {
   useEffect(() => {
     if (selectValue) props.getWeather(selectValue.value);
     if (!selectValue) props.getWeather();
+    props.setActiveWeeklyBtn(false);
     // eslint-disable-next-line
   }, [selectValue]);
 
@@ -68,6 +70,7 @@ const mapStateToProps = (state) => ({
 const dispatchToProps = {
   changeTheme: changeThemeSuccess,
   getWeather,
+  setActiveWeeklyBtn: setIsActiveBtnSucess,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(ControlsContainer);

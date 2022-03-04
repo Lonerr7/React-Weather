@@ -1,6 +1,9 @@
 import { connect } from 'react-redux';
 import WeeklyWeatherBtns from '../WeeklyWeatherBtns';
-import { getWeather } from '../../../../../redux/weatherReducer';
+import {
+  getWeather,
+  setIsActiveBtnSucess,
+} from '../../../../../redux/weatherReducer';
 import {
   get7DayWeather,
   get5DayWeather,
@@ -21,16 +24,20 @@ const WeeklyWeatherBtnsContainer = (props) => {
     <WeeklyWeatherBtns
       get7DayWeatherHandler={get7DayWeatherHandler}
       get5DayWeatherHandler={get5DayWeatherHandler}
+      isActive={props.isActive}
+      setIsActive={props.setIsActive}
     />
   );
 };
 
 const mapStateToProps = (state) => ({
   currentCity: state.app.currentCity,
+  isActive: state.app.isActiveBtn,
 });
 
 const dispatchToProps = {
   getWeather,
+  setIsActive: setIsActiveBtnSucess,
 };
 
 export default connect(

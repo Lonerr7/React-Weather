@@ -5,11 +5,13 @@ import { get5DayWeather } from './weeklyWeatherReducer';
 const CHANGE_THEME = 'CHANGE_THEME';
 const GET_WEATHER_INFO = 'GET_WEATHER_INFO';
 const SET_CURRENT_CITY = 'SET_CURRENT_CITY';
+const SET_ACTIVE_BTN = 'SET_ACTIVE_BTN';
 
 const initialState = {
   theme: 'light',
   weatherInfo: null,
   currentCity: '',
+  isActiveBtn: false,
 };
 
 const weatherReducer = (state = initialState, action) => {
@@ -28,6 +30,11 @@ const weatherReducer = (state = initialState, action) => {
       return {
         ...state,
         currentCity: action.newCity,
+      };
+    case SET_ACTIVE_BTN:
+      return {
+        ...state,
+        isActiveBtn: action.newActiveBtn,
       };
     default:
       return state;
@@ -49,6 +56,11 @@ const setCurrentCitySuccess = (newCity) => ({
   newCity,
 });
 
+export const setIsActiveBtnSucess = (newActiveBtn) => ({
+  type: SET_ACTIVE_BTN,
+  newActiveBtn,
+});
+
 export const getWeather =
   (cityName = 'mogilev', fn = get5DayWeather) =>
   async (dispatch) => {
@@ -58,6 +70,5 @@ export const getWeather =
     dispatch(getWeatherSuccess(response.data));
     await dispatch(fn(city.lat, city.lng));
   };
-
 
 export default weatherReducer;
