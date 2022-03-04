@@ -62,13 +62,13 @@ export const setIsActiveBtnSucess = (newActiveBtn) => ({
 });
 
 export const getWeather =
-  (cityName = 'mogilev', fn = get5DayWeather) =>
+  (cityName = 'mogilev', ) =>
   async (dispatch) => {
     const city = citiesFn(cityName);
     dispatch(setCurrentCitySuccess(cityName));
     const response = await weatherAPI.getWeatherInfo(city.lat, city.lng);
     dispatch(getWeatherSuccess(response.data));
-    await dispatch(fn(city.lat, city.lng));
+    await dispatch(get5DayWeather(city.lat, city.lng));
   };
 
 export default weatherReducer;

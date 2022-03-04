@@ -1,29 +1,19 @@
 import { connect } from 'react-redux';
 import WeeklyWeatherBtns from '../WeeklyWeatherBtns';
-import {
-  getWeather,
-  setIsActiveBtnSucess,
-} from '../../../../../redux/weatherReducer';
-import {
-  get7DayWeather,
-  get5DayWeather,
-} from '../../../../../redux/weeklyWeatherReducer';
+import { setIsActiveBtnSucess } from '../../../../../redux/weatherReducer';
+import { set5DayWeatherSuccess, get7DayWeatherSuccess } from '../../../../../redux/weeklyWeatherReducer';
 
 const WeeklyWeatherBtnsContainer = (props) => {
-  const get7DayWeatherHandler = () => {
-    props.getWeather(props.currentCity, get7DayWeather);
-  };
+  
 
   // TODO: Сделать запрос за погодой только на 7 дней и тоглить их показ из редьюсера
 
-  const get5DayWeatherHandler = () => {
-    props.getWeather(props.currentCity, get5DayWeather);
-  };
+  
 
   return (
     <WeeklyWeatherBtns
-      get7DayWeatherHandler={get7DayWeatherHandler}
-      get5DayWeatherHandler={get5DayWeatherHandler}
+      get7DayWeatherHandler={props.get7DayWeatherSuccess}
+      get5DayWeatherHandler={props.set5DayWeatherSuccess}
       isActive={props.isActive}
       setIsActive={props.setIsActive}
     />
@@ -36,7 +26,8 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = {
-  getWeather,
+  set5DayWeatherSuccess,
+  get7DayWeatherSuccess,
   setIsActive: setIsActiveBtnSucess,
 };
 
