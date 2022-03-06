@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CurrentTime = (props) => {
   let [currentTime, serCurrentTime] = useState(
@@ -8,14 +8,20 @@ const CurrentTime = (props) => {
     })
   );
 
-  setInterval(() => {
-    serCurrentTime(
-      new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      })
-    );
-  }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      serCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      );
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentTime]);
 
   return <p className={props.classItem}>Время: {currentTime}</p>;
 };
