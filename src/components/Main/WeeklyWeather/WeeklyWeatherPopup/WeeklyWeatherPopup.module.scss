@@ -1,0 +1,49 @@
+@import '../../../../vars.scss';
+
+.weeklyWeatherPopup {
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @extend %card-style;
+  width: 750px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__closeImgBox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &__closeImg {
+    cursor: pointer;
+  }
+
+  &__degree {
+    font-weight: 500;
+    font-size: 60px;
+    color: $blueText;
+    line-height: 73px;
+    margin-bottom: 12px;
+  }
+
+  &__weekday {
+    color: var(--text-color);
+    font-size: 25px;  
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+
+  &__conditionImgBox {
+    margin-bottom: 12px;
+  }
+  
+  &__time, &__city {
+    font-size: 15px;
+    line-height: 18px;
+    color: $greyText;
+  }
+}

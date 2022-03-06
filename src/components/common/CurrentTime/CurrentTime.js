@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import s from '../TodayWeatherSm.module.scss';
 
-const CurrentTime = () => {
+const CurrentTime = (props) => {
   let [currentTime, serCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: '2-digit',
@@ -18,7 +17,7 @@ const CurrentTime = () => {
     );
   }, 1000);
 
-  return <p className={s.todayWeatherSm__text}>Время: {currentTime}</p>;
+  return <p className={props.classItem}>Время: {currentTime}</p>;
 };
 
 export default CurrentTime;

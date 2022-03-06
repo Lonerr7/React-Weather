@@ -12,11 +12,19 @@
   }
 
   &__imgBox {
-    margin-right: 20px; 
+    margin-right: 20px;
+    background-color: #fff;
+    box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__img {
-    width: 30px;  
+    width: 25px;  
   }
 
   &__titleText {

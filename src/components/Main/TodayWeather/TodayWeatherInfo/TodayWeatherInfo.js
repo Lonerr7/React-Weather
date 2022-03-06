@@ -32,9 +32,7 @@ const TodayWeatherInfo = (props) => {
           {props.pressure} мм ртутного столба
         </p>
         <p className={s.todayWeatherInfo__text_3}>Без осадков</p>
-        <p className={s.todayWeatherInfo__text_4}>
-          {props.wind} м/с 
-        </p>
+        <p className={s.todayWeatherInfo__text_4}>{props.wind} м/с</p>
       </div>
     </div>
   );

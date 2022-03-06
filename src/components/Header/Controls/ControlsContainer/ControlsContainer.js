@@ -6,6 +6,7 @@ import {
   setIsActiveBtnSucess,
 } from '../../../../redux/weatherReducer';
 import Controls from '../Controls';
+import { deleteCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
 
 const ControlsContainer = (props) => {
   const newTheme = props.theme === 'light' ? 'dark' : 'light';
@@ -49,6 +50,7 @@ const ControlsContainer = (props) => {
     if (selectValue) props.getWeather(selectValue.value);
     if (!selectValue) props.getWeather();
     props.setActiveWeeklyBtn(false);
+    props.deleteCurrentPopupSuccess();
     // eslint-disable-next-line
   }, [selectValue]);
 
@@ -71,6 +73,7 @@ const dispatchToProps = {
   changeTheme: changeThemeSuccess,
   getWeather,
   setActiveWeeklyBtn: setIsActiveBtnSucess,
+  deleteCurrentPopupSuccess,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(ControlsContainer);

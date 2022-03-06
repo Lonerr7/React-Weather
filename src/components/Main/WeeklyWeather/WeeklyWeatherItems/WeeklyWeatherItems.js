@@ -1,24 +1,40 @@
 import s from './WeeklyWeatherItems.module.scss';
-import WeeklyWeatherItem from './WeeklyWeatherItem/WeeklyWeatherItem';
 import { connect } from 'react-redux';
+import WeeklyWeatherItemContainer from './WeeklyWeatherItem/WeeklyWeatherItemContainer/WeeklyWeatherItemContainer';
+import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
+import WeeklyWeatherPopupContainer from '../WeeklyWeatherPopup/WeeklyWeatherPopupContainer/WeeklyWeatherPopupContainer';
 
 const WeeklyWeatherItems = (props) => {
-  const weeklyWeatherElems = props.weatherArr.map((w) => (
-    <WeeklyWeatherItem
-      key={w.dt}
+  const weeklyWeatherElems = props.weatherArr.map((w, i) => (
+    <WeeklyWeatherItemContainer
+      id={w.dt}
+      key={i}
       icon={w.weather[0].icon}
       tempDay={w.temp.day}
       tempNight={w.temp.night}
       weatherDescr={w.weather[0].description}
       timeStamp={w.dt}
+      setCurrentPopupSuccess={props.setCurrentPopupSuccess}
     />
   ));
 
-  return <div className={s.weeklyWeatherItems}>{weeklyWeatherElems}</div>;
+  return (
+    <div className={s.weeklyWeatherItems}>
+      {weeklyWeatherElems}
+      {props.currentWeatherCard ? (
+        <WeeklyWeatherPopupContainer currentWeatherCard={props.currentWeatherCard} />
+      ) : null}
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({
   weatherArr: state.weeklyWeather.weatherArr,
+  currentWeatherCard: state.weeklyWeather.currentWeatherCard,
 });
 
-export default connect(mapStateToProps)(WeeklyWeatherItems);
+const dispatchToProps = {
+  setCurrentPopupSuccess,
+};
+
+export default connect(mapStateToProps, dispatchToProps)(WeeklyWeatherItems);

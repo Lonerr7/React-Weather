@@ -1,15 +1,12 @@
 import { connect } from 'react-redux';
 import WeeklyWeatherBtns from '../WeeklyWeatherBtns';
 import { setIsActiveBtnSucess } from '../../../../../redux/weatherReducer';
-import { set5DayWeatherSuccess, get7DayWeatherSuccess } from '../../../../../redux/weeklyWeatherReducer';
+import {
+  set5DayWeatherSuccess,
+  get7DayWeatherSuccess,
+} from '../../../../../redux/weeklyWeatherReducer';
 
 const WeeklyWeatherBtnsContainer = (props) => {
-  
-
-  // TODO: Сделать запрос за погодой только на 7 дней и тоглить их показ из редьюсера
-
-  
-
   return (
     <WeeklyWeatherBtns
       get7DayWeatherHandler={props.get7DayWeatherSuccess}

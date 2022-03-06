@@ -1,7 +1,6 @@
 import s from './WeeklyWeatherBtns.module.scss';
 
 const WeeklyWeatherBtns = (props) => {
-
   return (
     <div className={s.weeklyWeatherBtns}>
       <button

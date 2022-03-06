@@ -1,6 +1,6 @@
 import s from './TodayWeatherSm.module.scss';
 import { createTemperature } from '../../../../helpers/helpers';
-import CurrentTime from './CurrentTime/CurrentTime';
+import CurrentTime from '../../../common/CurrentTime/CurrentTime';
 
 const TodayWeatherSm = (props) => {
   const temp = createTemperature(props.temp);
@@ -20,7 +20,7 @@ const TodayWeatherSm = (props) => {
           />
         </div>
       </div>
-      <CurrentTime />
+      <CurrentTime classItem={s.todayWeatherSm__text} />
       <p className={s.todayWeatherSm__text}>Город: {props.cityName}</p>
     </div>
   );

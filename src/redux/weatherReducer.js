@@ -62,7 +62,7 @@ export const setIsActiveBtnSucess = (newActiveBtn) => ({
 });
 
 export const getWeather =
-  (cityName = 'mogilev', ) =>
+  (cityName = 'mogilev') =>
   async (dispatch) => {
     const city = citiesFn(cityName);
     dispatch(setCurrentCitySuccess(cityName));
