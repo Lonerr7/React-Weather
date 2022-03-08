@@ -70,7 +70,6 @@ export const deleteCurrentPopupSuccess = () => ({
 export const get5DayWeather = (lat, lon) => async (dispatch) => {
   const response = await weatherAPI.get7DayWeatherInfo(lat, lon);
   dispatch(get5DayWeatherSuccess(response.data.daily));
-  console.log(response.data);
 };
 
 export default weeklyWeatherReducer;

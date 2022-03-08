@@ -1,4 +1,10 @@
 .App {
   background-color: var(--bg-color);
   position: relative;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.App__hidden {
+  overflow: hidden;
 }

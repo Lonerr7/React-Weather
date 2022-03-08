@@ -22,7 +22,6 @@ const WeeklyWeatherPopupContainer = (props) => {
   const currentCity =
     props.currentCity.charAt(0).toUpperCase() + props.currentCity.slice(1);
 
-  console.log(currentWeather);
   return (
     <div className={s.overlay} onClick={props.deleteCurrentPopupSuccess}>
       <WeeklyWeatherPopup

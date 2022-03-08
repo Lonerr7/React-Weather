@@ -20,11 +20,17 @@ const AppContainer = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  return <App {...props} />;
+  // useEffect(() => {
+  //   if (props.currentWeatherCard) document.body.style.overflow = `hidden`;
+  //   if (!props.currentWeatherCard) document.body.style.overflow = `auto `;
+  // }, [props.currentWeatherCard]);
+
+  return <App currentWeatherCard={props.currentWeatherCard} />;
 };
 
 const mapStateToProps = (state) => ({
   theme: state.app.theme,
+  currentWeatherCard: state.weeklyWeather.currentWeatherCard,
 });
 
 const dispatchToProps = {

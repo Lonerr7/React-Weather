@@ -11,6 +11,7 @@ const Main = (props) => {
         <div className={s.main__inner}>
           <TodayWeather weatherInfo={props.weatherInfo} />
           <WeeklyWeather />
+          
         </div>
       ) : (
         <Preloader />

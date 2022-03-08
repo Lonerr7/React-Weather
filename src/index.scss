@@ -48,3 +48,10 @@ body[data-theme='dark'] {
 #react-select-listbox {
   background-color: var(--elems-big-color);
 }
+
+@media (max-width: 600px) {
+  #react-select-2-placeholder {
+    font-weight: 500;
+    font-size: 15px;
+  }
+}

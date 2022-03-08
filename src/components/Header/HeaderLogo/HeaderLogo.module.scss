@@ -13,3 +13,22 @@
     line-height: 30px;
   }
 }
+
+@media (max-width: 650px) {
+  .headerLogo {
+    &__text {
+      font-size: 20px;
+    }
+
+    &__logo {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .headerLogo {
+    margin-bottom: 30px;
+  }
+}

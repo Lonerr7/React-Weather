@@ -5,3 +5,10 @@
   align-items: center;
   margin-bottom: 30px;
 }
+
+@media (max-width: 555px) {
+  .header {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+}
