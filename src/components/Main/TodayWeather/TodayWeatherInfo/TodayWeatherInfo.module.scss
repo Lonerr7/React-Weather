@@ -2,7 +2,6 @@
 
 .todayWeatherInfo {
   position: relative;
-  display: flex;
   padding: 42px 32px;
   @extend %card-style;
 
@@ -17,26 +16,65 @@
     margin-right: 20px;
   }
 
-  &__texts {
-    padding-top: 12px;
-    position: relative;
+  &__text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  &__text_1 {
-    margin-bottom: 47px;
-    z-index: 10;
-    color: var(--text-color);
-  }
-
+  &__text_1,
   &__text_2,
   &__text_3,
   &__text_4 {
-    margin-bottom: 47px;
     z-index: 10;
     color: var(--text-color);
   }
 
+  &__text_1 {
+    margin-left: 20px;
+  }
+
+  &__text_2 {
+    margin-left: 45px;
+  }
+
+  &__text_3 {
+    margin-left: 65px;
+  }
+
   &__text_4 {
-    margin-bottom: 0;
+    margin-left: 78px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .todayWeatherInfo__bigCloud {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .todayWeatherInfo {
+    &__text {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 424px) {
+  .todayWeatherInfo {
+    &__text {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__text_1, &__text_2, &__text_3, &__text_4 {
+      margin-left: 0;
+      margin-top: 10px;
+    }
   }
 }

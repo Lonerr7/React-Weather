@@ -8,3 +8,12 @@
     gap: 50px;
   }
 }
+
+@media (max-width: 846px) {
+  .todayWeather {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+}

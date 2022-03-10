@@ -18,21 +18,27 @@ const TodayWeatherInfo = (props) => {
         src={bigCloud}
         alt="big cloud"
       />
-      <div className={s.todayWeatherInfo__titles}>
-        <TodayWeatherInfoTitle imgSrc={temp} titleName="Температура" />
-        <TodayWeatherInfoTitle imgSrc={pressure} titleName="Давление" />
-        <TodayWeatherInfoTitle imgSrc={precip} titleName="Осадки" />
-        <TodayWeatherInfoTitle imgSrc={wind} titleName="Ветер" />
-      </div>
       <div className={s.todayWeatherInfo__texts}>
-        <p className={s.todayWeatherInfo__text_1}>
-          {temperature}° - ощущается как {feelsLike}°
-        </p>
-        <p className={s.todayWeatherInfo__text_2}>
-          {props.pressure} мм ртутного столба
-        </p>
-        <p className={s.todayWeatherInfo__text_3}>Без осадков</p>
-        <p className={s.todayWeatherInfo__text_4}>{props.wind} м/с</p>
+        <div className={s.todayWeatherInfo__text}>
+          <TodayWeatherInfoTitle imgSrc={temp} titleName="Температура" />
+          <p className={s.todayWeatherInfo__text_1}>
+            {temperature}° - ощущается как {feelsLike}°
+          </p>
+        </div>
+        <div className={s.todayWeatherInfo__text}>
+          <TodayWeatherInfoTitle imgSrc={pressure} titleName="Давление" />
+          <p className={s.todayWeatherInfo__text_2}>
+            {props.pressure} мм ртутного столба
+          </p>
+        </div>
+        <div className={s.todayWeatherInfo__text}>
+          <TodayWeatherInfoTitle imgSrc={precip} titleName="Осадки" />
+          <p className={s.todayWeatherInfo__text_3}>Без осадков</p>
+        </div>
+        <div className={s.todayWeatherInfo__text}>
+          <TodayWeatherInfoTitle imgSrc={wind} titleName="Ветер" />
+          <p className={s.todayWeatherInfo__text_4}>{props.wind} м/с</p>
+        </div>
       </div>
     </div>
   );

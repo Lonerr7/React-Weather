@@ -32,7 +32,7 @@
 
   &__weekday {
     color: var(--text-color);
-    font-size: 25px;  
+    font-size: 25px;
     line-height: 30px;
     margin-bottom: 12px;
   }
@@ -40,10 +40,27 @@
   &__conditionImgBox {
     margin-bottom: 12px;
   }
-  
-  &__time, &__city {
+
+  &__time,
+  &__city {
     font-size: 15px;
     line-height: 18px;
     color: $greyText;
+  }
+}
+
+@media (max-width: 770px) {
+  .weeklyWeatherPopup {
+    width: 95%;
+  }
+}
+
+@media (max-width: 670px) {
+  .weeklyWeatherPopup {
+    flex-direction: column;
+
+    &__todayWeather {
+      margin-bottom: 30px;
+    }
   }
 }
