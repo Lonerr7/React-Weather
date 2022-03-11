@@ -6,12 +6,11 @@ import WeeklyWeather from './WeeklyWeather/WeeklyWeather';
 
 const Main = (props) => {
   return (
-    <main className={s.main}>
+    <main className={props.weatherInfo ? s.main : `${s.main} ${s.invisible}`}>
       {props.weatherInfo ? (
         <div className={s.main__inner}>
           <TodayWeather weatherInfo={props.weatherInfo} />
           <WeeklyWeather />
-          
         </div>
       ) : (
         <Preloader />

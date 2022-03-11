@@ -4,7 +4,11 @@ import TodayWeatherSm from './TodayWeatherSm/TodayWeatherSm';
 
 const TodayWeather = (props) => {
   return (
-    <div className={s.todayWeather}>
+    <div
+      className={
+        props.weatherInfo ? s.todayWeather : `${s.todayWeather} ${s.invisible}`
+      }
+    >
       <div className={s.todayWeather__inner}>
         <TodayWeatherSm
           temp={props.weatherInfo.main.temp}

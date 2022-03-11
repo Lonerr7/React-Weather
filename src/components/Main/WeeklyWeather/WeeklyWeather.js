@@ -8,7 +8,7 @@ const WeeklyWeather = () => {
       <WeeklyWeatherBtnsContainer />
       <WeeklyWeatherItems />
     </div>
-  )
-}
+  );
+};
 
-export default WeeklyWeather
+export default WeeklyWeather;

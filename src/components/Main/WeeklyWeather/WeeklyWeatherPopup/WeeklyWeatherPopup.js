@@ -15,17 +15,23 @@ const WeeklyWeatherPopup = (props) => {
         />
       </div>
       <div className={s.weeklyWeatherPopup__todayWeather}>
-        <p className={s.weeklyWeatherPopup__degree}>{props.temp}°</p>
-        <p className={s.weeklyWeatherPopup__weekday}>{props.weekDay}</p>
-        <div className={s.weeklyWeatherPopup__conditionImgBox}>
-          <img
-            className={s.weeklyWeatherPopup__conditionImg}
-            src={`https://openweathermap.org/img/wn/${props.iconId}@2x.png`}
-            alt="weather condition"
-          ></img>
+        <div className={s.weeklyWeatherPopup__tempDayBox}>
+          <p className={s.weeklyWeatherPopup__degree}>{props.temp}°</p>
+          <p className={s.weeklyWeatherPopup__weekday}>{props.weekDay}</p>
         </div>
-        <CurrentTime classItem={s.weeklyWeatherPopup__time} />
-        <p className={s.weeklyWeatherPopup__city}>Город: {props.currentCity}</p>
+        <div>
+          <div className={s.weeklyWeatherPopup__conditionImgBox}>
+            <img
+              className={s.weeklyWeatherPopup__conditionImg}
+              src={`https://openweathermap.org/img/wn/${props.iconId}@2x.png`}
+              alt="weather condition"
+            ></img>
+          </div>
+          <CurrentTime classItem={s.weeklyWeatherPopup__time} />
+          <p className={s.weeklyWeatherPopup__city}>
+            Город: {props.currentCity}
+          </p>
+        </div>
       </div>
       <TodayWeatherInfoSm
         temp={props.temp}

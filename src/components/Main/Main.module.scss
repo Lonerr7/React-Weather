@@ -1,0 +1,9 @@
+@import '../../vars.scss';
+
+.main {
+  @extend %transition;
+}
+
+.invisible {
+  opacity: 0;
+}

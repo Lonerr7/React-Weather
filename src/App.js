@@ -8,11 +8,11 @@ import WeeklyWeatherPopupContainer from './components/Main/WeeklyWeather/WeeklyW
 const App = (props) => {
   return (
     <div className="App">
-      {props.currentWeatherCard ? (
+      {/* {props.currentWeatherCard ? (
         <WeeklyWeatherPopupContainer
           currentWeatherCard={props.currentWeatherCard}
         />
-      ) : null}
+      ) : null} */}
       <BrowserRouter>
         <Container>
           <Header />

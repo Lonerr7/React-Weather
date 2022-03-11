@@ -2,10 +2,7 @@
 
 .weeklyWeatherPopup {
   padding: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   @extend %card-style;
   width: 750px;
   display: flex;
@@ -51,7 +48,7 @@
 
 @media (max-width: 770px) {
   .weeklyWeatherPopup {
-    width: 95%;
+    width: 80%;
   }
 }
 
@@ -61,6 +58,23 @@
 
     &__todayWeather {
       margin-bottom: 30px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 70%;
+    }
+
+    &__tempDayBox {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .weeklyWeatherPopup {
+    &__todayWeather {
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

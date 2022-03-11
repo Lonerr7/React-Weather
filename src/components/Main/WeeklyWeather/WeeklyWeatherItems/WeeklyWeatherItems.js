@@ -2,6 +2,7 @@ import s from './WeeklyWeatherItems.module.scss';
 import { connect } from 'react-redux';
 import WeeklyWeatherItemContainer from './WeeklyWeatherItem/WeeklyWeatherItemContainer/WeeklyWeatherItemContainer';
 import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
+import WeeklyWeatherPopupContainer from '../WeeklyWeatherPopup/WeeklyWeatherPopupContainer/WeeklyWeatherPopupContainer';
 
 const WeeklyWeatherItems = (props) => {
   const weeklyWeatherElems = props.weatherArr.map((w, i) => (
@@ -18,11 +19,17 @@ const WeeklyWeatherItems = (props) => {
   ));
 
   return (
-    <div className={s.weeklyWeatherItems}>
+    <div
+      className={
+        props.weatherArr
+          ? s.weeklyWeatherItems
+          : `${s.weeklyWeatherItems} ${s.invisible}`
+      }
+    >
       {weeklyWeatherElems}
-      {/* {props.currentWeatherCard ? (
+      {props.currentWeatherCard ? (
         <WeeklyWeatherPopupContainer currentWeatherCard={props.currentWeatherCard} />
-      ) : null} */}
+      ) : null}
     </div>
   );
 };
