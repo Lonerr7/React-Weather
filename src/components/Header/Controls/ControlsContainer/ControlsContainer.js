@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import Controls from '../Controls';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTheme } from '../../../../redux/themeSlice';
 import {
-  changeThemeSuccess,
   getWeather,
   setIsActiveBtnSucess,
-} from '../../../../redux/weatherReducer';
-import Controls from '../Controls';
-import { deleteCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
+} from '../../../../redux/weatherSlice';
 
-const ControlsContainer = (props) => {
-  const newTheme = props.theme === 'light' ? 'dark' : 'light';
+const ControlsContainer = () => {
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme.theme);
+
+  const newTheme = theme === 'light' ? 'dark' : 'light';
   const [selectValue, setSelectValue] = useState('');
 
   const changeThemeHandler = () => {
-    props.changeTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    dispatch(changeTheme({ newTheme }));
     document.body.setAttribute('data-theme', newTheme);
   };
 
@@ -47,10 +48,10 @@ const ControlsContainer = (props) => {
   };
 
   useEffect(() => {
-    if (selectValue) props.getWeather(selectValue.value);
-    if (!selectValue) props.getWeather();
-    props.setActiveWeeklyBtn(false);
-    props.deleteCurrentPopupSuccess();
+    if (selectValue) dispatch(getWeather(selectValue.value));
+    if (!selectValue) dispatch(getWeather());
+    dispatch(setIsActiveBtnSucess(false));
+    // props.deleteCurrentPopupSuccess();
     // eslint-disable-next-line
   }, [selectValue]);
 
@@ -65,15 +66,4 @@ const ControlsContainer = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  theme: state.app.theme,
-});
-
-const dispatchToProps = {
-  changeTheme: changeThemeSuccess,
-  getWeather,
-  setActiveWeeklyBtn: setIsActiveBtnSucess,
-  deleteCurrentPopupSuccess,
-};
-
-export default connect(mapStateToProps, dispatchToProps)(ControlsContainer);
+export default ControlsContainer;

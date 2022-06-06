@@ -2,13 +2,11 @@ import { weatherAPI } from '../api/api';
 import { citiesFn } from '../cities/cities';
 import { get5DayWeather } from './weeklyWeatherReducer';
 
-const CHANGE_THEME = 'CHANGE_THEME';
 const GET_WEATHER_INFO = 'GET_WEATHER_INFO';
 const SET_CURRENT_CITY = 'SET_CURRENT_CITY';
 const SET_ACTIVE_BTN = 'SET_ACTIVE_BTN';
 
 const initialState = {
-  theme: 'light',
   weatherInfo: null,
   currentCity: '',
   isActiveBtn: false,
@@ -16,11 +14,6 @@ const initialState = {
 
 const weatherReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_THEME:
-      return {
-        ...state,
-        theme: action.newTheme,
-      };
     case GET_WEATHER_INFO:
       return {
         ...state,
@@ -40,11 +33,6 @@ const weatherReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export const changeThemeSuccess = (newTheme) => ({
-  type: CHANGE_THEME,
-  newTheme,
-});
 
 const getWeatherSuccess = (newWeatherInfo) => ({
   type: GET_WEATHER_INFO,
