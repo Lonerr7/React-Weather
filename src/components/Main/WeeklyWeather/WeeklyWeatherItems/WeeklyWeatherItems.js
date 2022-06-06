@@ -1,7 +1,7 @@
 import s from './WeeklyWeatherItems.module.scss';
 import { useSelector } from 'react-redux';
 import WeeklyWeatherItemContainer from './WeeklyWeatherItem/WeeklyWeatherItemContainer/WeeklyWeatherItemContainer';
-import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
+import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherSlice';
 import WeeklyWeatherPopupContainer from '../WeeklyWeatherPopup/WeeklyWeatherPopupContainer/WeeklyWeatherPopupContainer';
 import { selectWeatherItemsByFilter } from './../../../../redux/selectors';
 
@@ -20,7 +20,7 @@ const WeeklyWeatherItems = () => {
       tempNight={w.temp.night}
       weatherDescr={w.weather[0].description}
       timeStamp={w.dt}
-      // setCurrentPopupSuccess={props.setCurrentPopupSuccess}
+      setCurrentPopupSuccess={setCurrentPopupSuccess}
     />
   ));
 
@@ -39,9 +39,5 @@ const WeeklyWeatherItems = () => {
     </div>
   );
 };
-
-// const dispatchToProps = {
-//   setCurrentPopupSuccess,
-// };
 
 export default WeeklyWeatherItems;

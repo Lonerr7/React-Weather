@@ -22,6 +22,14 @@ const weeklyWeatherSlice = createSlice({
     setIsActiveBtnSucess(state, action) {
       state.isActiveBtn = action.payload;
     },
+    setCurrentPopupSuccess(state, action) {
+      state.currentWeatherCard = state.weatherArr.filter(
+        (item) => item.dt === action.payload
+      );
+    },
+    deleteCurrentPopupSuccess(state) {
+      state.currentWeatherCard = null;
+    },
   },
   extraReducers: {
     [get7DaysWeather.fulfilled]: (state, action) => {
@@ -30,5 +38,9 @@ const weeklyWeatherSlice = createSlice({
   },
 });
 
-export const { setIsActiveBtnSucess } = weeklyWeatherSlice.actions;
+export const {
+  setIsActiveBtnSucess,
+  setCurrentPopupSuccess,
+  deleteCurrentPopupSuccess,
+} = weeklyWeatherSlice.actions;
 export default weeklyWeatherSlice.reducer;

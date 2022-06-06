@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import WeeklyWeatherPopup from '../WeeklyWeatherPopup';
-import { deleteCurrentPopupSuccess } from '../../../../../redux/weeklyWeatherReducer';
+import { deleteCurrentPopupSuccess } from '../../../../../redux/weeklyWeatherSlice';
 import {
   createLocaleDateString,
   createTemperature,
@@ -8,6 +8,8 @@ import {
 import s from './WeeklyWeatherPopupContainer.module.scss';
 
 const WeeklyWeatherPopupContainer = (props) => {
+  const currentCitySelector = useSelector((state) => state.app.currentCity);
+
   const currentWeather = props.currentWeatherCard[0];
   const temp = createTemperature(currentWeather.temp.day);
   const feelsLike = createTemperature(currentWeather.feels_like.day);
@@ -20,12 +22,12 @@ const WeeklyWeatherPopupContainer = (props) => {
   const weekDayCapitalized = weekDay.charAt(0).toUpperCase() + weekDay.slice(1);
 
   const currentCity =
-    props.currentCity.charAt(0).toUpperCase() + props.currentCity.slice(1);
+    currentCitySelector.charAt(0).toUpperCase() + currentCitySelector.slice(1);
 
   return (
-    <div className={s.overlay} onClick={props.deleteCurrentPopupSuccess}>
+    <div className={s.overlay} onClick={deleteCurrentPopupSuccess}>
       <WeeklyWeatherPopup
-        deleteCurrentPopupSuccess={props.deleteCurrentPopupSuccess}
+        deleteCurrentPopupSuccess={deleteCurrentPopupSuccess}
         temp={temp}
         feelsLike={feelsLike}
         weekDay={weekDayCapitalized}
@@ -38,15 +40,4 @@ const WeeklyWeatherPopupContainer = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentCity: state.app.currentCity,
-});
-
-const dispatchToProps = {
-  deleteCurrentPopupSuccess,
-};
-
-export default connect(
-  mapStateToProps,
-  dispatchToProps
-)(WeeklyWeatherPopupContainer);
+export default WeeklyWeatherPopupContainer;

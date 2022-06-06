@@ -2,8 +2,11 @@ import TodayWeatherInfoSm from '../../../common/TodayWeatherInfoSm/TodayWeatherI
 import s from './WeeklyWeatherPopup.module.scss';
 import close from '../../../../assets/images/main/close.png';
 import CurrentTime from '../../../common/CurrentTime/CurrentTime';
+import { useDispatch } from 'react-redux';
 
 const WeeklyWeatherPopup = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={s.weeklyWeatherPopup}>
       <div className={s.weeklyWeatherPopup__closeImgBox}>
@@ -11,7 +14,7 @@ const WeeklyWeatherPopup = (props) => {
           className={s.weeklyWeatherPopup__closeImg}
           src={close}
           alt="close"
-          onClick={props.deleteCurrentPopupSuccess}
+          onClick={() => dispatch(props.deleteCurrentPopupSuccess())}
         />
       </div>
       <div className={s.weeklyWeatherPopup__todayWeather}>

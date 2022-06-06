@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 import {
   createLocaleDateString,
   createTemperature,
@@ -5,6 +6,8 @@ import {
 import WeeklyWeatherItem from '../WeeklyWeatherItem';
 
 const WeeklyWeatherItemContainer = (props) => {
+  const dispatch = useDispatch();
+
   const tempDay = createTemperature(props.tempDay);
   const tempNight = createTemperature(props.tempNight);
   const capitalizedWeatherDescr =
@@ -16,8 +19,8 @@ const WeeklyWeatherItemContainer = (props) => {
   const weekDay = createLocaleDateString(now, 'ru-RU', { weekday: 'short' });
 
   const showPopupHandler = (id) => {
-    props.setCurrentPopupSuccess(id);
-  }
+    dispatch(props.setCurrentPopupSuccess(id));
+  };
 
   return (
     <WeeklyWeatherItem
