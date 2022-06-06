@@ -1,13 +1,17 @@
 import s from './WeeklyWeatherItems.module.scss';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import WeeklyWeatherItemContainer from './WeeklyWeatherItem/WeeklyWeatherItemContainer/WeeklyWeatherItemContainer';
 import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherReducer';
 import WeeklyWeatherPopupContainer from '../WeeklyWeatherPopup/WeeklyWeatherPopupContainer/WeeklyWeatherPopupContainer';
+import { selectWeatherItemsByFilter } from './../../../../redux/selectors';
 
-const WeeklyWeatherItems = (props) => {
-  
+const WeeklyWeatherItems = () => {
+  const weatherArr = useSelector(selectWeatherItemsByFilter);
+  const currentWeatherCard = useSelector(
+    (state) => state.weeklyWeather.currentWeatherCard
+  );
 
-  const weeklyWeatherElems = props.weatherArr.map((w, i) => (
+  const weeklyWeatherElems = weatherArr.map((w, i) => (
     <WeeklyWeatherItemContainer
       id={w.dt}
       key={i}
@@ -16,35 +20,28 @@ const WeeklyWeatherItems = (props) => {
       tempNight={w.temp.night}
       weatherDescr={w.weather[0].description}
       timeStamp={w.dt}
-      setCurrentPopupSuccess={props.setCurrentPopupSuccess}
+      // setCurrentPopupSuccess={props.setCurrentPopupSuccess}
     />
   ));
 
   return (
     <div
       className={
-        props.weatherArr
+        weatherArr
           ? s.weeklyWeatherItems
           : `${s.weeklyWeatherItems} ${s.invisible}`
       }
     >
       {weeklyWeatherElems}
-      {props.currentWeatherCard ? (
-        <WeeklyWeatherPopupContainer
-          currentWeatherCard={props.currentWeatherCard}
-        />
+      {currentWeatherCard ? (
+        <WeeklyWeatherPopupContainer currentWeatherCard={currentWeatherCard} />
       ) : null}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  weatherArr: state.weeklyWeather.weatherArr,
-  currentWeatherCard: state.weeklyWeather.currentWeatherCard,
-});
+// const dispatchToProps = {
+//   setCurrentPopupSuccess,
+// };
 
-const dispatchToProps = {
-  setCurrentPopupSuccess,
-};
-
-export default connect(mapStateToProps, dispatchToProps)(WeeklyWeatherItems);
+export default WeeklyWeatherItems;

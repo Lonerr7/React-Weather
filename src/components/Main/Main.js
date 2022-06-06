@@ -12,7 +12,7 @@ const Main = () => {
       {weatherInfo ? (
         <div className={s.main__inner}>
           <TodayWeather weatherInfo={weatherInfo} />
-          {/* <WeeklyWeather /> */}
+          <WeeklyWeather />
         </div>
       ) : (
         <Preloader />

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Controls from '../Controls';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../../../../redux/themeSlice';
-import {
-  getWeather,
-  setIsActiveBtnSucess,
-} from '../../../../redux/weatherSlice';
+import { getWeather } from '../../../../redux/weatherSlice';
+import { setIsActiveBtnSucess } from '../../../../redux/weeklyWeatherSlice';
+import { setFilterSuccess } from '../../../../redux/filtersSlice';
 
 const ControlsContainer = () => {
   const dispatch = useDispatch();
@@ -52,6 +51,7 @@ const ControlsContainer = () => {
     if (!selectValue) dispatch(getWeather());
     dispatch(setIsActiveBtnSucess(false));
     // props.deleteCurrentPopupSuccess();
+    dispatch(setFilterSuccess('5-day'));
     // eslint-disable-next-line
   }, [selectValue]);
 

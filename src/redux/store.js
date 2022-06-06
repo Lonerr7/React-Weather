@@ -12,10 +12,14 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import themeSlice from './themeSlice';
+import weeklyWeatherSlice from './weeklyWeatherSlice';
+import filtersSlice from './filtersSlice';
 
 const rootReducer = combineReducers({
   app: weatherSlice,
   theme: themeSlice,
+  weeklyWeather: weeklyWeatherSlice,
+  filters: filtersSlice,
 });
 
 const persistConfig = {

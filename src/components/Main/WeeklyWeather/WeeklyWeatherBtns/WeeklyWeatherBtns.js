@@ -1,6 +1,9 @@
+import { useDispatch } from 'react-redux';
 import s from './WeeklyWeatherBtns.module.scss';
 
 const WeeklyWeatherBtns = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={s.weeklyWeatherBtns}>
       <button
@@ -10,8 +13,8 @@ const WeeklyWeatherBtns = (props) => {
             : s.weeklyWeatherBtns__btn
         }
         onClick={() => {
-          props.get5DayWeatherHandler();
-          props.setIsActive(false);
+          dispatch(props.setFilterSuccess('5-days'));
+          dispatch(props.setIsActive(false));
         }}
       >
         На 5 дней
@@ -23,8 +26,8 @@ const WeeklyWeatherBtns = (props) => {
             : s.weeklyWeatherBtns__btn
         }
         onClick={() => {
-          props.get7DayWeatherHandler();
-          props.setIsActive(true);
+          dispatch(props.setFilterSuccess('7-days'));
+          dispatch(props.setIsActive(true));
         }}
       >
         На неделю
