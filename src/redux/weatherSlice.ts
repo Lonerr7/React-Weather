@@ -1,20 +1,21 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { weatherAPI } from '../api/api';
 import { citiesFn } from '../cities/cities';
+import { WeatherInfo, WeatherState } from '../types/types';
 import { get7DaysWeather } from './weeklyWeatherSlice';
 
-const initialState = {
+const initialState: WeatherState = {
   weatherInfo: null,
   currentCity: '',
 };
 
 export const getWeather = createAsyncThunk(
   'weather/getWeather',
-  async (cityName = 'mogilev', { dispatch }) => {
-    const city = citiesFn(cityName);
+  async (cityName: string = 'mogilev', { dispatch }) => {
+    const city = citiesFn(cityName)!;
     dispatch(setCurrentCitySuccess(cityName));
     const response = await weatherAPI.getWeatherInfo(city.lat, city.lng);
-    await dispatch(get7DaysWeather({ lat: city.lat, lng: city.lng }));
+    await dispatch(get7DaysWeather(city));
     return response.data;
   }
 );
@@ -23,12 +24,15 @@ const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
-    setCurrentCitySuccess(state, action) {
+    setCurrentCitySuccess(state, action: PayloadAction<string>) {
       state.currentCity = action.payload;
     },
   },
   extraReducers: {
-    [getWeather.fulfilled]: (state, action) => {
+    [getWeather.fulfilled.type]: (
+      state,
+      action: PayloadAction<WeatherInfo>
+    ) => {
       state.weatherInfo = action.payload;
     },
   },

@@ -1,15 +1,21 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { weatherAPI } from '../api/api';
+import { WeeklyWeatherItem, WeeklyWeatherState } from '../types/types';
 
-const initialState = {
+const initialState: WeeklyWeatherState = {
   weatherArr: [],
   currentWeatherCard: null,
   isActiveBtn: false,
 };
 
+type ThunkParams = {
+  lat: number;
+  lng: number;
+};
+
 export const get7DaysWeather = createAsyncThunk(
   'weeklyWeather/get7DaysWeather',
-  async ({ lat, lng }) => {
+  async ({ lat, lng }: ThunkParams) => {
     const response = await weatherAPI.get7DayWeatherInfo(lat, lng);
     return response.data.daily;
   }
@@ -19,10 +25,10 @@ const weeklyWeatherSlice = createSlice({
   name: 'weeklyWeather',
   initialState,
   reducers: {
-    setIsActiveBtnSucess(state, action) {
+    setIsActiveBtnSucess(state, action: PayloadAction<boolean>) {
       state.isActiveBtn = action.payload;
     },
-    setCurrentPopupSuccess(state, action) {
+    setCurrentPopupSuccess(state, action: PayloadAction<number>) {
       state.currentWeatherCard = state.weatherArr.filter(
         (item) => item.dt === action.payload
       );
@@ -32,7 +38,10 @@ const weeklyWeatherSlice = createSlice({
     },
   },
   extraReducers: {
-    [get7DaysWeather.fulfilled]: (state, action) => {
+    [get7DaysWeather.fulfilled.type]: (
+      state,
+      action: PayloadAction<WeeklyWeatherItem[]>
+    ) => {
       state.weatherArr = action.payload.slice(0, -1);
     },
   },

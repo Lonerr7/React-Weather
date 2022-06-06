@@ -1,4 +1,4 @@
-export const citiesFn = (city) => {
+export const citiesFn = (city: string) => {
   switch (city) {
     case 'mogilev':
       return {

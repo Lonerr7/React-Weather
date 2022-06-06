@@ -1,7 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from './store';
 
-const selectAllWeatherItems = (state) => state.weeklyWeather.weatherArr;
-const selectActiveFilter = (state) => state.filters.filter;
+const selectAllWeatherItems = (state: RootState) =>
+  state.weeklyWeather.weatherArr;
+const selectActiveFilter = (state: RootState) => state.filters.filter;
 
 export const selectWeatherItemsByFilter = createSelector(
   [selectAllWeatherItems, selectActiveFilter],
