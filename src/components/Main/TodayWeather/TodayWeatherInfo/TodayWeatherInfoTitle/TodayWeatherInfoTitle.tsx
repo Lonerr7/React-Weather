@@ -1,6 +1,11 @@
 import s from './TodayWeatherInfoTitle.module.scss';
 
-const TodayWeatherInfoTitle = (props) => {
+type TodayWeatherInfoTitleProps = {
+  imgSrc: string;
+  titleName: string;
+};
+
+const TodayWeatherInfoTitle: React.FC<TodayWeatherInfoTitleProps> = (props) => {
   return (
     <div className={s.todayWeatherInfo__title}>
       <div className={s.todayWeatherInfo__imgBox}>

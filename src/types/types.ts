@@ -105,3 +105,10 @@ export type SevenDaysResponse = {
   timezone_offset: number;
   daily: WeeklyWeatherItem[];
 };
+
+export enum Cities {
+  mogilev = 'mogilev',
+  minsk = 'minsk',
+  kyiv = 'kyiv',
+  berlin = 'berlin',
+}

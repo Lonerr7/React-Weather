@@ -1,7 +1,7 @@
 import s from './HeaderLogo.module.scss';
 import logo from '../../../assets/images/header/logo.svg';
 
-const HeaderLogo = () => {
+const HeaderLogo: React.FC = () => {
   return (
     <a className={s.headerLogo} href="/">
       <div className={s.headerLogo__logoBox}>

@@ -1,13 +1,13 @@
 import s from './WeeklyWeatherItems.module.scss';
-import { useSelector } from 'react-redux';
 import WeeklyWeatherItemContainer from './WeeklyWeatherItem/WeeklyWeatherItemContainer/WeeklyWeatherItemContainer';
 import { setCurrentPopupSuccess } from '../../../../redux/weeklyWeatherSlice';
 import WeeklyWeatherPopupContainer from '../WeeklyWeatherPopup/WeeklyWeatherPopupContainer/WeeklyWeatherPopupContainer';
-import { selectWeatherItemsByFilter } from './../../../../redux/selectors';
+import { selectWeatherItemsByFilter } from '../../../../redux/selectors';
+import { useAppSelector } from '../../../../hooks/hooks';
 
-const WeeklyWeatherItems = () => {
-  const weatherArr = useSelector(selectWeatherItemsByFilter);
-  const currentWeatherCard = useSelector(
+const WeeklyWeatherItems: React.FC = () => {
+  const weatherArr = useAppSelector(selectWeatherItemsByFilter);
+  const currentWeatherCard = useAppSelector(
     (state) => state.weeklyWeather.currentWeatherCard
   );
 
@@ -27,7 +27,7 @@ const WeeklyWeatherItems = () => {
   return (
     <div
       className={
-        weatherArr
+        weatherArr.length
           ? s.weeklyWeatherItems
           : `${s.weeklyWeatherItems} ${s.invisible}`
       }

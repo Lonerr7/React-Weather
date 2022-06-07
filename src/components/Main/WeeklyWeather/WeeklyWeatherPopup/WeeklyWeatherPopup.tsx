@@ -2,10 +2,22 @@ import TodayWeatherInfoSm from '../../../common/TodayWeatherInfoSm/TodayWeatherI
 import s from './WeeklyWeatherPopup.module.scss';
 import close from '../../../../assets/images/main/close.png';
 import CurrentTime from '../../../common/CurrentTime/CurrentTime';
-import { useDispatch } from 'react-redux';
+import { ActionCreatorWithoutPayload } from '@reduxjs/toolkit';
+import { useAppDispatch } from '../../../../hooks/hooks';
 
-const WeeklyWeatherPopup = (props) => {
-  const dispatch = useDispatch();
+type WeeklyWeatherPopupProps = {
+  deleteCurrentPopupSuccess: ActionCreatorWithoutPayload<string>;
+  temp: number;
+  feelsLike: number;
+  weekDay: string;
+  iconId: string;
+  currentCity: string;
+  pressure: number;
+  wind: number;
+};
+
+const WeeklyWeatherPopup: React.FC<WeeklyWeatherPopupProps> = (props) => {
+  const dispatch = useAppDispatch();
 
   return (
     <div className={s.weeklyWeatherPopup}>

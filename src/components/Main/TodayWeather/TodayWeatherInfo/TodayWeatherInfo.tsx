@@ -1,18 +1,35 @@
-import TodayWeatherInfoTitle from '../../Main/TodayWeather/TodayWeatherInfo/TodayWeatherInfoTitle/TodayWeatherInfoTitle';
-import s from './TodayWeatherInfoSm.module.scss';
-import temp from '../../../assets/images/main/temp.svg';
-import pressure from '../../../assets/images/main/pressure.svg';
-import precip from '../../../assets/images/main/precip.svg';
-import wind from '../../../assets/images/main/wind.svg';
+import s from './TodayWeatherInfo.module.scss';
+import wind from '../../../../assets/images/main/wind.svg';
+import temp from '../../../../assets/images/main/temp.svg';
+import pressure from '../../../../assets/images/main/pressure.svg';
+import precip from '../../../../assets/images/main/precip.svg';
+import bigCloud from '../../../../assets/images/main/bigCloud.png';
+import TodayWeatherInfoTitle from './TodayWeatherInfoTitle/TodayWeatherInfoTitle';
+import { createTemperature } from '../../../../helpers/helpers';
 
-const TodayWeatherInfoSm = (props) => {
+type TodayWeatherInfoProps = {
+  temp: number;
+  feelsLike: number;
+  pressure: number;
+  wind: number;
+};
+
+const TodayWeatherInfo: React.FC<TodayWeatherInfoProps> = (props) => {
+  const temperature = createTemperature(props.temp);
+  const feelsLike = createTemperature(props.feelsLike);
+
   return (
     <div className={s.todayWeatherInfo}>
+      <img
+        className={s.todayWeatherInfo__bigCloud}
+        src={bigCloud}
+        alt="big cloud"
+      />
       <div className={s.todayWeatherInfo__texts}>
         <div className={s.todayWeatherInfo__text}>
           <TodayWeatherInfoTitle imgSrc={temp} titleName="Температура" />
           <p className={s.todayWeatherInfo__text_1}>
-            {props.temp}° - ощущается как {props.feelsLike}°
+            {temperature}° - ощущается как {feelsLike}°
           </p>
         </div>
         <div className={s.todayWeatherInfo__text}>
@@ -34,4 +51,4 @@ const TodayWeatherInfoSm = (props) => {
   );
 };
 
-export default TodayWeatherInfoSm;
+export default TodayWeatherInfo;

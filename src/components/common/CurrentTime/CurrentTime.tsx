@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const CurrentTime = (props) => {
+type CurrentTimeProps = {
+  classItem: string;
+};
+
+const CurrentTime: React.FC<CurrentTimeProps> = (props) => {
   let [currentTime, serCurrentTime] = useState(
     new Date().toLocaleTimeString([], {
       hour: '2-digit',

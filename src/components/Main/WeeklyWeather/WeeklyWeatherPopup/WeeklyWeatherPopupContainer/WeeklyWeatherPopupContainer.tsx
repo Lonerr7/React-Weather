@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import WeeklyWeatherPopup from '../WeeklyWeatherPopup';
 import { deleteCurrentPopupSuccess } from '../../../../../redux/weeklyWeatherSlice';
 import {
@@ -6,9 +5,17 @@ import {
   createTemperature,
 } from '../../../../../helpers/helpers';
 import s from './WeeklyWeatherPopupContainer.module.scss';
+import { WeeklyWeatherItem } from '../../../../../types/types';
+import { useAppSelector } from '../../../../../hooks/hooks';
 
-const WeeklyWeatherPopupContainer = (props) => {
-  const currentCitySelector = useSelector((state) => state.app.currentCity);
+type WeeklyWeatherPopupContainerProps = {
+  currentWeatherCard: WeeklyWeatherItem[];
+};
+
+const WeeklyWeatherPopupContainer: React.FC<
+  WeeklyWeatherPopupContainerProps
+> = (props) => {
+  const currentCitySelector = useAppSelector((state) => state.app.currentCity);
 
   const currentWeather = props.currentWeatherCard[0];
   const temp = createTemperature(currentWeather.temp.day);

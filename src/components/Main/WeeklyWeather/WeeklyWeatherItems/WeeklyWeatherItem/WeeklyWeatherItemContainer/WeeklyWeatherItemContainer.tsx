@@ -1,12 +1,25 @@
-import { useDispatch } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import {
   createLocaleDateString,
   createTemperature,
 } from '../../../../../../helpers/helpers';
+import { useAppDispatch } from '../../../../../../hooks/hooks';
 import WeeklyWeatherItem from '../WeeklyWeatherItem';
 
-const WeeklyWeatherItemContainer = (props) => {
-  const dispatch = useDispatch();
+type WeeklyWeatherItemContainerProps = {
+  id: number;
+  icon: string;
+  tempDay: number;
+  tempNight: number;
+  weatherDescr: string;
+  timeStamp: number;
+  setCurrentPopupSuccess: ActionCreatorWithPayload<number, string>;
+};
+
+const WeeklyWeatherItemContainer: React.FC<WeeklyWeatherItemContainerProps> = (
+  props
+) => {
+  const dispatch = useAppDispatch();
 
   const tempDay = createTemperature(props.tempDay);
   const tempNight = createTemperature(props.tempNight);
@@ -18,7 +31,7 @@ const WeeklyWeatherItemContainer = (props) => {
   const dateMonth = createLocaleDateString(now, 'ru-RU', options);
   const weekDay = createLocaleDateString(now, 'ru-RU', { weekday: 'short' });
 
-  const showPopupHandler = (id) => {
+  const showPopupHandler = (id: number) => {
     dispatch(props.setCurrentPopupSuccess(id));
   };
 

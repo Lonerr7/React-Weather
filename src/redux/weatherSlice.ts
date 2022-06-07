@@ -11,7 +11,7 @@ const initialState: WeatherState = {
 
 export const getWeather = createAsyncThunk(
   'weather/getWeather',
-  async (cityName: string = 'mogilev', { dispatch }) => {
+  async (cityName: string, { dispatch }) => {
     const city = citiesFn(cityName)!;
     dispatch(setCurrentCitySuccess(cityName));
     const response = await weatherAPI.getWeatherInfo(city.lat, city.lng);

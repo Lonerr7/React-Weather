@@ -1,10 +1,12 @@
 import WeeklyWeatherBtns from '../WeeklyWeatherBtns';
-import { useSelector } from 'react-redux';
 import { setFilterSuccess } from '../../../../../redux/filtersSlice';
 import { setIsActiveBtnSucess } from '../../../../../redux/weeklyWeatherSlice';
+import { useAppSelector } from '../../../../../hooks/hooks';
 
-const WeeklyWeatherBtnsContainer = () => {
-  const isActiveBtn = useSelector((state) => state.weeklyWeather.isActiveBtn);
+const WeeklyWeatherBtnsContainer: React.FC = () => {
+  const isActiveBtn = useAppSelector(
+    (state) => state.weeklyWeather.isActiveBtn
+  );
 
   return (
     <WeeklyWeatherBtns

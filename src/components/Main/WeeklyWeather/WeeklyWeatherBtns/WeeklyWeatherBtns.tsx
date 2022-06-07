@@ -1,8 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { useAppDispatch } from '../../../../hooks/hooks';
 import s from './WeeklyWeatherBtns.module.scss';
 
-const WeeklyWeatherBtns = (props) => {
-  const dispatch = useDispatch();
+type WeeklyWeatherBtnsProps = {
+  isActive: boolean;
+  setIsActive: ActionCreatorWithPayload<boolean, string>;
+  setFilterSuccess: ActionCreatorWithPayload<string, string>;
+};
+
+const WeeklyWeatherBtns: React.FC<WeeklyWeatherBtnsProps> = (props) => {
+  const dispatch = useAppDispatch();
 
   return (
     <div className={s.weeklyWeatherBtns}>

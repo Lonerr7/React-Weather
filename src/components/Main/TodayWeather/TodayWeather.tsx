@@ -1,8 +1,13 @@
+import { WeatherInfo } from '../../../types/types';
 import s from './TodayWeather.module.scss';
 import TodayWeatherInfo from './TodayWeatherInfo/TodayWeatherInfo';
 import TodayWeatherSm from './TodayWeatherSm/TodayWeatherSm';
 
-const TodayWeather = (props) => {
+type TodayWeatherProps = {
+  weatherInfo: WeatherInfo;
+};
+
+const TodayWeather: React.FC<TodayWeatherProps> = (props) => {
   return (
     <div
       className={

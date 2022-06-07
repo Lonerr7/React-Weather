@@ -4,6 +4,6 @@ export const createTemperature = (temp: number) => {
 
 export const createLocaleDateString = (
   dateObj: Date,
-  locale = [],
+  locale: string | [] = [],
   options = {}
 ) => dateObj.toLocaleDateString(locale, options);

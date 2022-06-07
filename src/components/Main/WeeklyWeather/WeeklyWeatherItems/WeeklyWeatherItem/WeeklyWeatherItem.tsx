@@ -1,10 +1,24 @@
 import s from './WeeklyWeatherItem.module.scss';
 
-const WeeklyWeatherItem = (props) => {
+type WeeklyWeatherItemProps = {
+  weekDay: string;
+  dateMonth: string;
+  tempDay: number;
+  tempNight: number;
+  capitalizedWeatherDescr: string;
+  icon: string;
+  showPopupHandler: (id: number) => void;
+  id: number;
+};
+
+const WeeklyWeatherItem: React.FC<WeeklyWeatherItemProps> = (props) => {
   return (
-    <div className={s.weeklyWeatherItem} onClick={() => {
-      props.showPopupHandler(props.id);
-    }}>
+    <div
+      className={s.weeklyWeatherItem}
+      onClick={() => {
+        props.showPopupHandler(props.id);
+      }}
+    >
       <div className={s.weeklyWeatherItem__inner}>
         <p className={s.weeklyWeatherItem__day}>
           {props.weekDay.charAt(0).toUpperCase() + props.weekDay.slice(1)}

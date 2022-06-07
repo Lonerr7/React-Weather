@@ -1,6 +1,10 @@
 import s from './Container.module.scss';
 
-const Container = (props) => {
+type ContainerProps = {
+  children: JSX.Element | JSX.Element[];
+};
+
+const Container: React.FC<ContainerProps> = (props) => {
   return <div className={s.container}>{props.children}</div>;
 };
 

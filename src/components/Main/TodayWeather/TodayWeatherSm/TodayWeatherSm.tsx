@@ -2,7 +2,13 @@ import s from './TodayWeatherSm.module.scss';
 import { createTemperature } from '../../../../helpers/helpers';
 import CurrentTime from '../../../common/CurrentTime/CurrentTime';
 
-const TodayWeatherSm = (props) => {
+type TodayWeatherSmProps = {
+  temp: number;
+  cityName: string;
+  iconId: string;
+};
+
+const TodayWeatherSm: React.FC<TodayWeatherSmProps> = (props) => {
   const temp = createTemperature(props.temp);
 
   return (
